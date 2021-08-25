@@ -14,7 +14,7 @@ const Countries = ({ handleCountryChange }) => {
     };
 
     fetchAPI();
-  }, []);
+  }, [setCountries]);
 
   return (
     <FormControl className={styles.formControl}>
