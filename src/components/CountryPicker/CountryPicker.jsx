@@ -9,6 +9,9 @@ const Countries = ({ handleCountryChange }) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
+    /*
+      Fetch all countries whose stats can be displayed to form a Select list element. UseEffect is called each time setCountries is called.
+    */
     const fetchAPI = async () => {
       setCountries(await fetchCountries());
     };

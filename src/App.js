@@ -10,12 +10,19 @@ class App extends React.Component {
     country: "",
   };
 
+  /* --------------------------------
+    Asynchronous componentDidMount function is declared in following way.
+    This acts as the main state repositiory for the whole application.
+  */
   async componentDidMount() {
     const data = await fetchData();
 
     this.setState({ data });
   }
 
+  /* --------------------------------
+    This function is called in CountryPicker select list to change the currently selected country.
+  */
   handleCountryChange = async (country) => {
     const data = await fetchData(country);
 
