@@ -9,6 +9,9 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
   const [dailyData, setDailyData] = useState({});
 
   useEffect(() => {
+    /*----------------------------
+      Fetch Dailydata from API. Refreshes on each setDailyData useState call.
+    */
     const fetchMyAPI = async () => {
       const initialDailyData = await fetchDailyData();
 
@@ -16,8 +19,11 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
     };
 
     fetchMyAPI();
-  }, []);
+  }, [setDailyData]);
 
+  /*--------------------------------
+    Initially set as off. Barchat can be toggled to show the stats of a country on it.
+  */
   const barChart = confirmed ? (
     <Bar
       data={{
@@ -41,6 +47,9 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
     />
   ) : null;
 
+  /* -----------------------------------
+      Initially set as on. Shows the stats and numbers throughout timeline with Months on X-axis and cases in 10,000 on Y-axis 
+  */
   const lineChart = dailyData[0] ? (
     <Line
       data={{

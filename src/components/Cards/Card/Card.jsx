@@ -5,6 +5,9 @@ import cx from "classnames";
 
 import styles from "./Card.module.css";
 
+/*
+  Plain Card component for reusability.
+*/
 const CardComponent = ({
   className,
   cardTitle,

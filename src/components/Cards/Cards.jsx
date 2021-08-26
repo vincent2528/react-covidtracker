@@ -4,9 +4,16 @@ import CardComponent from "./Card/Card";
 import styles from "./Cards.module.css";
 
 const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+  /* 
+    While data is not fetched displays loading,so as to avoid data types in undefined error in case of slow network.
+  */
   if (!confirmed) {
     return "Loading...";
   }
+
+  /*----------------------------------------------------------------
+      Main Container component to show number of active cases, recovered cases and deaths in different Cards.
+  */
 
   return (
     <div className={styles.container}>

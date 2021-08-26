@@ -1,8 +1,14 @@
 import axios from "axios";
 
+/*
+  API for Covid-19 stats.Shows data uptil March 2021 for all countries.
+*/
 const url = "https://covid19.mathdro.id/api";
 
 export const fetchData = async (country) => {
+  /*
+  Fetch and returns no.of active cases,recovered cases and deaths for a given country. By default USA is selected.
+  */
   let changeableUrl = url;
 
   if (country) {
@@ -21,6 +27,9 @@ export const fetchData = async (country) => {
 };
 
 export const fetchDailyData = async () => {
+  /*
+  Fetch and returns no.of cases,recovered cases and deaths by daytime.
+  */
   try {
     const { data } = await axios.get(`${url}/daily`);
 
@@ -35,6 +44,9 @@ export const fetchDailyData = async () => {
 };
 
 export const fetchCountries = async () => {
+  /*
+  Returns list of all the countries whose data is recorded in API.
+  */
   try {
     const {
       data: { countries },
